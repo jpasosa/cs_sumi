@@ -9,17 +9,23 @@
         <a href="{{ path('_homepage') }}">
             <img class="back" src="{{ asset('bundles/cstockarticles/images/back.jpg' ) }}" alt="volver atras" title="Volver atrás" width="100" height="100" />
         </a>
-        <a href="{{ path('_homepage') }}">
+        <a href="{{ path('article_new') }}">
             <img class="list" src="{{ asset('bundles/cstockarticles/images/list.png' ) }}" alt="listar" title="Listar ArtIculos" width="100" height="100" />
         </a>
         <a href="{{ path('_homepage') }}">
             <img class="back" src="{{ asset('bundles/cstockarticles/images/configure.png' ) }}" alt="configurar" title="Configuración de ArtIculos" width="100" height="100" />
         </a>
     </div>
-    <div class="inner-content new_article">
-        <div class="box_new_article">
-            <div class="title"> ARTICULO CREADO </div>
-        </div> <!-- cierro box_new_article -->
+    <div class="inner-content list_article">
+        
+            {% for article in articles %}
+                {{ article.code }} <br />
+                {{ article.name }} <br />
+                {{ article.description }} <br />
+                {{ article.reference }} <br />
+                {{ article.heading }} <br />
+            {% endfor %}
+        
     </div> <!-- cierro inner-content new_article -->
 {% endblock %}
 

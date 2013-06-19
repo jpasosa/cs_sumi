@@ -5,11 +5,21 @@
 {% endblock %}
 
 {% block content %}
-    <div class="left"></div>
+    <div class="left new_article">
+        <a href="{{ path('_homepage') }}">
+            <img class="back" src="{{ asset('bundles/cstockarticles/images/back.jpg' ) }}" alt="volver atras" title="Volver atrás" width="100" height="100" />
+        </a>
+        <a href="{{ path('article_list') }}">
+            <img class="list" src="{{ asset('bundles/cstockarticles/images/list.png' ) }}" alt="listar" title="Listar ArtIculos" width="100" height="100" />
+        </a>
+        <a href="{{ path('_homepage') }}">
+            <img class="back" src="{{ asset('bundles/cstockarticles/images/configure.png' ) }}" alt="configurar" title="Configuración de ArtIculos" width="100" height="100" />
+        </a>
+    </div>
     <div class="inner-content new_article">
         <div class="box_new_article">
             <div class="title"> ALTA DE PRODUCTO </div>
-            <form class="new_article" action="{{ path('article_new') }}" method="post" {{ form_enctype(form) }}>
+                {{ form_start(form) }}
                 <div class="image_top">
                     <img src="{{ asset('bundles/cstockmain/images/main/alta_productos.png' ) }}" width="198" height="114" alt="alta" />
                     {# form_errors(form) #}
@@ -44,10 +54,10 @@
                    </div>
                 </div>
 
-                <input type="submit" value="Agregar" />
+                <input class="agregar" type="submit" value="AGREGAR" />
 
                 {# form_rest(form) #}
-            </form>
+            {{ form_end(form) }}
         </div> <!-- cierro box_new_article -->
     </div> <!-- cierro inner-content new_article -->
 {% endblock %}
