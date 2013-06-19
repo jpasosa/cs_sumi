@@ -1,0 +1,5 @@
+cstock_main:
+    resource: "@cstockMainBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
