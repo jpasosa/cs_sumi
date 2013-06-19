@@ -1,0 +1,57 @@
+{% extends '::layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/cstockarticles/css/article.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="left"></div>
+    <div class="inner-content new_article">
+        <div class="box_new_article">
+            <div class="title"> ALTA DE PRODUCTO </div>
+            <form class="new_article" action="{{ path('article_new') }}" method="post" {{ form_enctype(form) }}>
+                <div class="image_top">
+                    <img src="{{ asset('bundles/cstockmain/images/main/alta_productos.png' ) }}" width="198" height="114" alt="alta" />
+                    {# form_errors(form) #}
+                    <div class="code"> <!-- CODIGO DEL ARTICULO-->
+                        {{ form_label(form.code) }}
+                        {{ form_widget(form.code) }}
+                        {{ form_errors(form.code) }}
+                   </div>
+                    <div class="name"> <!-- NOMBRE DEL ARTICULO -->
+                        {{ form_label(form.name) }}
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+                   </div>
+                </div>
+                <div class="bottom">
+                   <div class="description"> <!-- DESCRIPCION DEL ARTICULO -->
+                        {{ form_label(form.description) }}
+                        {{ form_widget(form.description) }}
+                        {{ form_errors(form.description) }}
+                   </div>
+
+                   <div class="reference"> <!-- REFERENCIA DEL ARTICULO -->
+                        {{ form_label(form.reference) }}
+                        {{ form_widget(form.reference) }}
+                        {{ form_errors(form.reference) }}
+                   </div>
+
+                   <div class="heading"> <!-- CATEGORIA DEL ARTICULO -->
+                        {{ form_label(form.heading) }}
+                        {{ form_widget(form.heading) }}
+                        {{ form_errors(form.heading) }}
+                   </div>
+                </div>
+
+                <input type="submit" value="Agregar" />
+
+                {# form_rest(form) #}
+            </form>
+        </div> <!-- cierro box_new_article -->
+    </div> <!-- cierro inner-content new_article -->
+{% endblock %}
+
+
+
+

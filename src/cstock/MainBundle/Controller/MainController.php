@@ -17,13 +17,5 @@ class MainController extends Controller
         return $this->render('cstockMainBundle:Main:homepage.html.twig');
     }
 
-    /**
-     * @Route("/article_new", name="article_new")
-     * @Template()
-     */
-    // esto hay que eliminarloooo, lo puse para que no me dé error al no estar el routing article_new. . . 
-    public function pepeAction()
-    {
-        return $this->render('cstockMainBundle:Main:homepage.html.twig');
-    }
+   
 }
