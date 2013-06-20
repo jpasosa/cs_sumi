@@ -5,28 +5,61 @@
 {% endblock %}
 
 {% block content %}
-    <div class="left new_article">
+
+    <!-- LEFT MENU -->
+    <div class="left">
         <a href="{{ path('_homepage') }}">
             <img class="back" src="{{ asset('bundles/cstockarticles/images/back.jpg' ) }}" alt="volver atras" title="Volver atrás" width="100" height="100" />
         </a>
         <a href="{{ path('article_new') }}">
-            <img class="list" src="{{ asset('bundles/cstockarticles/images/list.png' ) }}" alt="listar" title="Listar ArtIculos" width="100" height="100" />
+            <img class="list" src="{{ asset('bundles/cstockarticles/images/add.png' ) }}" alt="agregar" title="Agregar ArtIculo" width="100" height="100" />
         </a>
         <a href="{{ path('_homepage') }}">
             <img class="back" src="{{ asset('bundles/cstockarticles/images/configure.png' ) }}" alt="configurar" title="Configuración de ArtIculos" width="100" height="100" />
         </a>
     </div>
+
+
     <div class="inner-content list_article">
-        
-            {% for article in articles %}
-                {{ article.code }} <br />
-                {{ article.name }} <br />
-                {{ article.description }} <br />
-                {{ article.reference }} <br />
-                {{ article.heading }} <br />
-            {% endfor %}
-        
-    </div> <!-- cierro inner-content new_article -->
+
+        <!-- http://demosthenes.info/blog/327/Dynamic-Customized-Tables-With-CSS3#filmtitle-hiragana -->
+        <!-- LISTA DE ARTICULOS -->
+        <table id="kurosawa">
+            <col /><col /><col /><col /><col /><col />
+            <caption>LISTADO DE ARTÍCULOS</caption>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Referencia</th>
+                    <th>Categoría</th>
+                    <th width="85" >Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.code }}</td>
+                        <td>{{ article.name }}</td>
+                        <td>{{ article.description }}</td>
+                        <td>{{ article.reference }}</td>
+                        <td>{{ article.heading }}</td>
+                        <td  class="actions">
+                            <a href="#" style="float:right;">
+                                <img class="edit" src="{{ asset('bundles/cstockmain/images/icons/edit_30.png' ) }}" alt="editar" title="editar" width="15" height="15" />
+                            </a>
+                            <a href="#" style="float:right;">
+                                <img class="del" src="{{ asset('bundles/cstockmain/images/icons/del_30.png' ) }}" alt="eliminar" title="eliminar" width="15" height="15" />
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div> <!-- cierro inner-content list_article -->
 {% endblock %}
 
 

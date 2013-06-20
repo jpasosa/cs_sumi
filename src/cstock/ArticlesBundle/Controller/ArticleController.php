@@ -2,19 +2,18 @@
 
 namespace cstock\ArticlesBundle\Controller;
 
-
-
 use cstock\ArticlesBundle\Entity\Articles;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceListInterface;
 
 class ArticleController extends Controller {
-    
+
+
     /**
     * @Route("/article/new", name="article_new")
     * @Method({"GET", "POST"})
@@ -22,7 +21,7 @@ class ArticleController extends Controller {
     */
     public function newAction(Request $request)
     {
-        
+
         $new_article = new Articles();
         // $new_article->setCode('987736');
 
@@ -42,9 +41,9 @@ class ArticleController extends Controller {
                                     ->getForm();
         $form->handleRequest($request);
 
-            
+
             if($form->isValid()) {
-                
+
                 $em = $this->getDoctrine()->getManager();
                 //$new_article = $form->getData();
                 $em->persist($new_article);
@@ -60,6 +59,7 @@ class ArticleController extends Controller {
     }
 
 
+
     /**
     * @Route("/article/list", name="article_list")
     * @Method({"GET", "POST"})
@@ -67,7 +67,7 @@ class ArticleController extends Controller {
     */
     public function listAction()
     {
-        
+
         $new_article = new Articles();
         $repository = $this->getDoctrine()->getRepository('cstockArticlesBundle:Articles');
         $articles = $repository->findAll();
