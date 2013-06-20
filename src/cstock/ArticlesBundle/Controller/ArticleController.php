@@ -25,8 +25,6 @@ class ArticleController extends Controller {
         $new_article = new Articles();
         // $new_article->setCode('987736');
 
-
-
         $form = $this->createFormBuilder($new_article)
                                     ->add('name', 'text', array('required' => false, 'label' => 'Nombre: ',
                                                                             'attr'=>array('oninvalid'=>"setCustomValidity('Would you please enter a valid email?')")))
@@ -73,6 +71,30 @@ class ArticleController extends Controller {
         $articles = $repository->findAll();
         return $this->render('cstockArticlesBundle:Article:list.html.twig',
                                         array('articles' => $articles));
+    }
+
+
+    /**
+    * @Route("/article/edit/{id}", name="article_edit", requirements={"id" = "\d+"})
+    * @Method({"GET", "POST"})
+    * @Template()
+    */
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('cstockArticlesBundle:Articles')->find($id);
+
+        if (!$article) {
+            throw $this->createNotFoundException(
+                'No article found for id '.$id
+            );
+        }
+
+        // acá debemos imprimir el form para poder editarlo.
+        // $article->setName('New product name!');
+        // $em->flush();
+
+        return $this->redirect($this->generateUrl('_homepage'));
     }
 
 

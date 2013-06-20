@@ -34,7 +34,7 @@
                     <th>Descripción</th>
                     <th>Referencia</th>
                     <th>Categoría</th>
-                    <th width="85" >Acciones</th>
+                    <th width="120" >Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,11 +46,14 @@
                         <td>{{ article.reference }}</td>
                         <td>{{ article.heading }}</td>
                         <td  class="actions">
-                            <a href="#" style="float:right;">
-                                <img class="edit" src="{{ asset('bundles/cstockmain/images/icons/edit_30.png' ) }}" alt="editar" title="editar" width="15" height="15" />
+                            <a href="#">
+                                <img class="view" src="{{ asset('bundles/cstockmain/images/icons/view_30.png' ) }}" alt="ver" title="Ver" width="15" height="15" />
                             </a>
-                            <a href="#" style="float:right;">
-                                <img class="del" src="{{ asset('bundles/cstockmain/images/icons/del_30.png' ) }}" alt="eliminar" title="eliminar" width="15" height="15" />
+                            <a href="{{ path('article_edit', {'id': article.id}) }}">
+                                <img class="edit" src="{{ asset('bundles/cstockmain/images/icons/edit_30.png' ) }}" alt="editar" title="Editar" width="15" height="15" />
+                            </a>
+                            <a href="#">
+                                <img class="del" src="{{ asset('bundles/cstockmain/images/icons/del_30.png' ) }}" alt="eliminar" title="Borrar" width="15" height="15" />
                             </a>
                         </td>
                     </tr>

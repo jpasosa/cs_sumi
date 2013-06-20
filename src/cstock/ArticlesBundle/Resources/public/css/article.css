@@ -230,8 +230,15 @@ table#kurosawa tbody tr td.actions {
 }
 
 table#kurosawa tbody tr td.actions a img.edit,
-table#kurosawa tbody tr td.actions a img.del {
+table#kurosawa tbody tr td.actions a img.del,
+table#kurosawa tbody tr td.actions a img.view {
     margin: 0 10px 0 10px;
+    float: left;
+}
+
+table#kurosawa tbody tr td.actions a:hover {
+    opacity:0.3;
+    filter:alpha(opacity=30);
 }
 
 
