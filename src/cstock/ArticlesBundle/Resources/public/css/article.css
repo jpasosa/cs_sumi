@@ -7,6 +7,12 @@
     float: left;
 }
 
+
+.left a:hover {
+    opacity:0.5;
+    filter:alpha(opacity=50);
+}
+
 .left a img {
     margin: 0 0 0 50px;
 }
